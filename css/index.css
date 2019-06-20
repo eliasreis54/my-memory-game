@@ -1,0 +1,25 @@
+/* default styles */
+
+body {
+  background-color: #d3e6dd;
+  font-family: "Indie Flower", cursive;
+  color: #364958;
+}
+/* End default styles */
+
+/* Customized styles */
+
+.center-div {
+    display: inline;
+    text-align: center;
+}
+
+.matching-game {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25% 25% 25% 25%;
+    background-color: #BDD9CC;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
