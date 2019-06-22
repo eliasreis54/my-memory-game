@@ -44,7 +44,6 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
-  animation-name: flipInY;
   animation-duration: .75s;
 }
 
@@ -53,9 +52,21 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #55828B;
+  background-color: #364958;
   width: 60%;
   padding: 6px;
+}
+
+.item-background-open {
+	animation: flipInY;
+	background-color: #55828B;
+	animation-duration: .75s;
+}
+
+.item-background .item-matched {
+	cursor: default;
+	animation: rubberBand;
+	background-color: #55828B;
 }
 
 /* animations */
