@@ -41,7 +41,11 @@ const checkMetchedItems = () => {
       removeClickItems(cardsOpen);
       countMatchs++;
       checkFinishGame();
+      cardsOpen[0].firstElementChild.classList.remove("z-index-1");
+      cardsOpen[1].firstElementChild.classList.remove("z-index-1");
     } else {
+      cardsOpen[0].firstElementChild.classList.add("z-index-1");
+      cardsOpen[1].firstElementChild.classList.add("z-index-1");
       audioError.play();
       addClassOnItems(cardsOpen, "item-no-matched");
       removeClassOnItems(cardsOpen, "item-background-open");
@@ -56,6 +60,7 @@ const checkMetchedItems = () => {
 
 const funcClick = e => {
   if (e.target.nodeName === "DIV") {
+    e.target.children[0].classList.remove("z-index-1");
     e.target.classList.toggle("item-background-open");
     checkMetchedItems();
   }
