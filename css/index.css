@@ -63,10 +63,18 @@ body {
 	animation-duration: .75s;
 }
 
-.item-background .item-matched {
+.item-matched {
+	cursor: default;
+	animation: pulse;
+	background-color: #87BBA2;
+	animation-duration: .75s;
+}
+
+.item-no-matched {
 	cursor: default;
 	animation: rubberBand;
-	background-color: #55828B;
+	background-color: #050708;
+	animation-duration: .75s;
 }
 
 /* animations */
