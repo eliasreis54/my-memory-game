@@ -1,7 +1,7 @@
 const card = document.querySelectorAll(".item-background");
 const icon = document.querySelectorAll(".noClick");
-const cardGame = document.querySelectorAll('.item-game');
-const game = document.getElementById('matching-game');
+const cardGame = document.querySelectorAll(".item-game");
+const game = document.getElementById("matching-game");
 let timer = document.getElementById("timer");
 let bestScore = document.getElementById("best-score");
 const modal = document.getElementById("myModal");
@@ -83,45 +83,48 @@ const checkFinishGame = () => {
 };
 
 const shuffle = array => {
-  let currentIndex = array.length, temporaryValue, randomIndex;
+  let currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
 
   while (currentIndex !== 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
   }
 
   return array;
 };
 
-
-let second = 0, minute = 0; hour = 0;
+let second = 0,
+  minute = 0;
+hour = 0;
 let interval;
-function startTimer(){
-    interval = setInterval(function(){
-        timer.innerHTML = ` ${minute} minuts : ${second} seconds`;
-        second++;
-        if(second == 60){
-            minute++;
-            second=0;
-        }
-        if(minute == 60){
-            hour++;
-            minute = 0;
-        }
-    },1000);
+function startTimer() {
+  interval = setInterval(function() {
+    timer.innerHTML = ` ${minute} minuts : ${second} seconds`;
+    second++;
+    if (second == 60) {
+      minute++;
+      second = 0;
+    }
+    if (minute == 60) {
+      hour++;
+      minute = 0;
+    }
+  }, 1000);
 }
 
 const closeModal = () => {
   modal.style.display = "none";
-}
+};
 
 const reStartGame = () => {
   closeModal();
   startGame();
-}
+};
 
 const startGame = () => {
   addListennerOnItens();
@@ -131,7 +134,7 @@ const startGame = () => {
   cardsGame = shuffle(cardsGame);
   cardsGame.forEach(card => {
     game.appendChild(card);
-  })
+  });
   startTimer();
 };
 
