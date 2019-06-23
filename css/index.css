@@ -5,36 +5,35 @@
 
 html,
 body {
-    width: 100%;
-    height: 90%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 88%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background-color: #d3e6dd;
   font-family: "Indie Flower", cursive;
   color: #364958;
-  
 }
 /* End default styles */
 
 /* Customized styles */
 
 .center-div {
-    display: inline;
-    text-align: center;
+  display: inline;
+  text-align: center;
 }
 
 .matching-game {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 25% 25% 25% 25%;
-    column-gap: 5px;
-    background-color: #BDD9CC;
-    width: 80%;
-    height: 100%;
-    margin: auto;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+  column-gap: 5px;
+  background-color: #bdd9cc;
+  width: 80%;
+  height: 100%;
+  margin: auto;
 }
 
 .item-game {
@@ -44,7 +43,7 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
-  animation-duration: .75s;
+  animation-duration: 0.75s;
 }
 
 .item-background {
@@ -58,92 +57,153 @@ body {
 }
 
 .item-background-open {
-	animation: flipInY;
-	background-color: #55828B;
-	animation-duration: .75s;
+  animation: flipInY;
+  background-color: #55828b;
+  animation-duration: 0.75s;
 }
 
 .item-matched {
-	cursor: default;
-	animation: pulse;
-	background-color: #87BBA2;
-	animation-duration: .75s;
+  cursor: default;
+  animation: pulse;
+  background-color: #87bba2;
+  animation-duration: 0.75s;
 }
 
 .item-no-matched {
-	cursor: default;
-	animation: rubberBand;
-	background-color: #050708;
-	animation-duration: .75s;
+  cursor: default;
+  animation: rubberBand;
+  background-color: #050708;
+  animation-duration: 0.75s;
 }
 
+.info-game {
+  display: flex;
+  align-content: space-between;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+}
+
+.inline {
+  display: inherit;
+}
+
+.modal {
+	animation: appear 350ms ease-in 1;
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* The Close Button */
+  
+  .close:hover,
+  .close:focus,
+  .play-again:hover,
+  .play-again:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+  .options-modal {
+	  display: flex;
+	  flex-direction: row;
+  }
 /* animations */
 @keyframes flipInY {
-	from {
-		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
-		animation-timing-function: ease-in;
-		opacity: 0;
-	}
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
 
-	40% {
-		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
-		animation-timing-function: ease-in;
-	}
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
 
-	60% {
-		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
-		opacity: 1;
-	}
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
 
-	80% {
-		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
-	}
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
 
-	to {
-		transform: perspective(400px);
-	}
+  to {
+    transform: perspective(400px);
+  }
 }
 
 @keyframes rubberBand {
-	from {
-		transform: scale3d(1, 1, 1);
-	}
+  from {
+    transform: scale3d(1, 1, 1);
+  }
 
-	30% {
-		transform: scale3d(1.25, 0.75, 1);
-	}
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
 
-	40% {
-		transform: scale3d(0.75, 1.25, 1);
-	}
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
 
-	50% {
-		transform: scale3d(1.15, 0.85, 1);
-	}
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
 
-	65% {
-		transform: scale3d(.95, 1.05, 1);
-	}
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
 
-	75% {
-		transform: scale3d(1.05, .95, 1);
-	}
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
 
-	to {
-		transform: scale3d(1, 1, 1);
-	}
+  to {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 @keyframes pulse {
-	from {
-		transform: scale3d(1, 1, 1);
-	}
+  from {
+    transform: scale3d(1, 1, 1);
+  }
 
-	50% {
-		transform: scale3d(1.2, 1.2, 1.2);
-	}
+  50% {
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
 
-	to {
-		transform: scale3d(1, 1, 1);
-	}
+  to {
+    transform: scale3d(1, 1, 1);
+  }
 }
+
+@keyframes appear {
+	0%{
+	  opacity: 0;
+	  transform: translateY(-10px);
+	}
+  }
