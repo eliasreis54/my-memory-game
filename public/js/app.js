@@ -16,18 +16,21 @@ const icons = [...icon];
 let cardsGame = [...cardGame];
 let countMatchs = 0;
 
+// Remove class on item by paramether.
 const removeClassOnItems = (items, classname) => {
   items.forEach(item => {
     item.classList.remove(classname);
   });
 };
 
+// Add class on item by paramether.
 const addClassOnItems = (items, className) => {
   items.forEach(item => {
     item.classList.add(className);
   });
 };
 
+// this function check the cards match.
 const checkMetchedItems = () => {
   const card = document.getElementsByClassName("item-background-open");
   const cardsOpen = [...card];
@@ -58,6 +61,7 @@ const checkMetchedItems = () => {
   return;
 };
 
+// Generic funtion to put in divs
 const funcClick = e => {
   if (e.target.nodeName === "DIV") {
     e.target.children[0].classList.remove("z-index-1");
@@ -66,18 +70,21 @@ const funcClick = e => {
   }
 };
 
+// add listenners on items
 const addListennerOnItens = () => {
   cards.forEach(item => {
     item.addEventListener("click", funcClick);
   });
 };
 
+// remove click items
 const removeClickItems = items => {
   items.forEach(item => {
     item.removeEventListener("click", funcClick);
   });
 };
 
+// Check if the game is finished.
 const checkFinishGame = () => {
   if (countMatchs === 8) {
     clearInterval(interval);
@@ -87,6 +94,7 @@ const checkFinishGame = () => {
   }
 };
 
+// shuffle the cards to change all order in new game.
 const shuffle = array => {
   let currentIndex = array.length,
     temporaryValue,
@@ -103,12 +111,10 @@ const shuffle = array => {
   return array;
 };
 
-let second = 0,
-  minute = 0;
-hour = 0;
 let interval;
-function startTimer() {
-  interval = setInterval(function() {
+const startTimer = () => {
+  let second = 0,  minute = 0, hour = 0;;
+  interval = setInterval(() => {
     timer.innerHTML = ` ${minute} minuts : ${second} seconds`;
     second++;
     if (second == 60) {
@@ -127,6 +133,11 @@ const closeModal = () => {
 };
 
 const reStartGame = () => {
+  removeClassOnItems(cards, "item-matched");
+  cards.forEach(card => {
+    card.firstElementChild.classList.add("z-index-1");
+  })
+  clearInterval(interval);
   closeModal();
   startGame();
 };
